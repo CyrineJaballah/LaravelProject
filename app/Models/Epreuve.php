@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Epreuve extends Model
 {
-    protected $fillable=['']
+    protected $fillable=['date','nom','matiere_id'];
 }

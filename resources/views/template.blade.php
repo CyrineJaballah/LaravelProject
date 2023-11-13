@@ -36,7 +36,10 @@
                 <div class="nav-bar1">
                     <ul class="navbar-box1">
                         <li class="nav-item">
-                             <a class="nav-link" href='{!!url('/');!!}'>Ajouter<span class="sr-only">(current)</span></a>
+                             <a class="nav-link" href='{!!url('/ajouterEpreuve');!!}'>Ajouter Epreuve<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href='{!!url('/ajouterMatieres');!!}'>Ajouter Matiere</a>
                         </li>
                         <li class="nav-item">
                              <a class="nav-link" href='{!!url('/epreuve');!!}'>Epreuve</a>

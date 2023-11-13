@@ -10,9 +10,9 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
         Schema::create('epreuves', function (Blueprint $table) {
-            $table->id('id');
-            $table->date('date');
-            $table->string('nom');
+            $table->id();
+            $table->string('nom')->default('');
+            $table->date('date')->nullable();
             $table->foreignId('matiere_id')->constrained('matiere');
             $table->timestamps();
         });

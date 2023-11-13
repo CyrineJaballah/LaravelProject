@@ -23,12 +23,26 @@ Route::get('/', function () {
 
 });
 
-Route::get('/matiere', [MatController::class, 'index'])->name('matiere.index');
 
-Route::get('/epreuve', [EpreuveController::class, 'index'])->name('epreuve.index');
 
-Route::post('/epreuve', [EpreuveController::class, 'store'])->name('epreuves.store');
+//Route::get('/matiere', [MatController::class, 'index'])->name('matiere.index');
 
-//Route::get('/epreuve',[EpreuveController::class,'output'])->name('epreuve');
+//Route::get('/epreuve', [EpreuveController::class, 'index'])->name('epreuve.index');
 
-//Route::get('/matiere',[MatController::class,'output'])->name('matiere');
+//Route::post('/epreuve', [EpreuveController::class, 'store'])->name('epreuves.store');
+
+
+//Add Matiere
+Route::get('/matiere', [MatController::class,'index'])->name('matiere');
+
+Route::post('/ajouterMatieres', [MatController::class, 'insertMatiere'])->name('ajoutermatiere');
+Route::get('/ajouterMatieres', [MatController::class, 'create'])->name('ajoutermatiere');
+
+
+//Add Epreuve
+Route::get('/ajouterEpreuve', [EpreuveController::class, 'create'])->name('ajouterepreuve');
+
+Route::post('/ajouterEpreuve', [EpreuveController::class, 'insertEpreuve'])->name('ajouterepreuve');
+
+
+Route::get('/epreuve', [EpreuveController::class,'index'])->name('epreuve');

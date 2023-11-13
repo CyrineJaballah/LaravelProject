@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Epreuve extends Model
 {
-    protected $fillable=['date','nom','matiere_id'];
+    protected $fillable=['nom','date','matiere_id'];
+
+    public function matieres(){
+        return $this->belongsTo(Matiere::class);
+    }
 }

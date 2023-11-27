@@ -8,7 +8,7 @@ class Matiere extends Model
 {
     protected $table="matiere";
     protected $fillable=['libelleMat','coefMat'];
-    public function matieres(){
+    public function epreuves(){
 
         return $this->hasMany(Epreuve::class);
     }}

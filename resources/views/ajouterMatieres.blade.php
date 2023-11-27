@@ -6,7 +6,7 @@
 
 @section('contenu')
     <div>
-        <form method="POST" action="/ajouterMatieres">
+        <form method="POST" action={{route('matiere.store')}}>
             @csrf
             <label for="codemat">Code Matiere (Max 5 characters):</label>
             <input type="text" name="codemat" id="codemat" required maxlength="5">
@@ -19,8 +19,8 @@
             <br>
             <button type="submit">Ajouter Matiere</button>
         </form>
-    </div>
-    @if ($errors->any())
+        </div>
+        @if ($errors->any())
         {!! implode('', $errors->all('<div>:message</div>')) !!}
     @endif
 @endsection

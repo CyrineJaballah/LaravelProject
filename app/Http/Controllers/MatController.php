@@ -20,12 +20,16 @@ class MatController extends Controller
         $tab = Matiere::all();
         return view('matiere')->with('matieres', $tab);
     }
+    public function show($id)
+    {
 
+    }
     public function create()
     {
-        return view('ajouterMatieres');
+        $matiere = Matiere::all();
+        return view('ajouterMatieres')->with('matiere', $matiere);
     }
-    public function insertMatiere(Request $request)
+    public function store(Request $request)
     {
         $validatedData = Validator::make($request->all(), [
             'codemat' => 'bail|required|max:5',
@@ -42,11 +46,31 @@ class MatController extends Controller
                     'coefMat' => $request->input('coef'),
                 ]
             );
-            return redirect()->route('matiere');
+            return redirect()->route('matiere.index');
+
         }
-
-
+    }
+    public function edit($id)
+    {
+        $matiere = Matiere::findOrFail($id);
+        return view('editMatieres')->with('matieres', $matiere);
     }
 
+    public function destroy(Matiere $matiere)
+    {
+        $matiere->epreuves()->delete();
+        $matiere->delete();
+        return redirect()->route('matiere.index')->with('success');
+    }
 
+    public function update(Request $request,Matiere $matiere)
+    {
+    $validatedData = Validator::make($request->all(), [
+        'libelleMat' => 'bail|required',
+        'coefMat' => 'bail|required|numeric|min:1|max:5',
+    ]);
+        $matiere->update($request->all());
+        return redirect()->route('matiere.index');
+    }
 }
+

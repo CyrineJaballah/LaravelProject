@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EpreuveController;
 use App\Http\Controllers\MatController;
@@ -23,7 +24,10 @@ Route::get('/', function () {
 
 });
 
+Route::resource('contacts', ContactController::class);
+Route::resource("matiere", MatController::class);
 
+Route::resource('epreuve', EpreuveController::class);
 
 //Route::get('/matiere', [MatController::class, 'index'])->name('matiere.index');
 
@@ -33,11 +37,15 @@ Route::get('/', function () {
 
 
 //Add Matiere
-Route::get('/matiere', [MatController::class,'index'])->name('matiere');
+/*Route::get('/matiere', [MatController::class, 'index'])->name('matiere');
 
 Route::post('/ajouterMatieres', [MatController::class, 'insertMatiere'])->name('ajoutermatiere');
 Route::get('/ajouterMatieres', [MatController::class, 'create'])->name('ajoutermatiere');
 
+Route::get('/editMatieres/{id}', [MatController::class, 'update'])->name('editMatieres');
+
+//delete matiere
+Route::get('/supprimerMatieres/{id}', [MatController::class, 'delete'])->name('deleteMatieres');
 
 //Add Epreuve
 Route::get('/ajouterEpreuve', [EpreuveController::class, 'create'])->name('ajouterepreuve');
@@ -45,4 +53,11 @@ Route::get('/ajouterEpreuve', [EpreuveController::class, 'create'])->name('ajout
 Route::post('/ajouterEpreuve', [EpreuveController::class, 'insertEpreuve'])->name('ajouterepreuve');
 
 
-Route::get('/epreuve', [EpreuveController::class,'index'])->name('epreuve');
+Route::get('/epreuve', [EpreuveController::class, 'index'])->name('epreuve');
+
+Route::get('/editEpreuve', [EpreuveController::class, 'update'])->name('editEpreuve');
+
+//delete epreuve
+Route::get('/supprimerEpreuve/{id}', [EpreuveController::class, 'delete'])->name('deleteEpreuve');
+*/
+
